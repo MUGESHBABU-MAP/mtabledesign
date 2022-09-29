@@ -1,0 +1,46 @@
+<!-- <p>tabledata works!</p> -->
+<p-table [value]="tmdata">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <!-- <th>Author</th> -->
+            <!-- <th>Price In Dollars</th> -->
+            <th colspan="3">Project Timeline</th>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-tmdata>
+        <tr>
+            <td>{{tmdata.id}}</td>
+            <td>{{tmdata.name}}</td>
+            <!-- <td>{{book.author}}</td> -->
+            <!-- <td>{{book.price}}</td>  -->
+            <td colspan="3">
+                <div class="tdinline">
+                    {{tmdata.startdate| date : "dd.MM.y" }} <p-calendar *ngIf="tmdata.startdate.length == 0"
+                        (onSelect)="onsch(value,tmdata.id)" [(ngModel)]="value"></p-calendar>
+                </div>
+                <div class="tdinline">
+                    <i class="pi pi-angle-right"></i>
+                </div>
+                <div class="tdinline">
+                    {{tmdata.enddate| date : "dd.MM.y" }}<p-calendar *ngIf="tmdata.enddate.length == 0"
+                        (onSelect)="onch(value,tmdata.id)" [(ngModel)]="value"></p-calendar>
+                </div>
+            </td>
+
+        </tr>
+    </ng-template>
+</p-table>
+<div style="display: none;">
+    <p>
+        <!-- <td> <p-calendar dateFormat="dd.mm.yy" (onSelect)="onch(value)" [(ngModel)]="value"></p-calendar></td> -->
+        <!-- <p-calendar *ngIf="book.enddate.length == 0" (onInput)="onch()" [(ngModel)]="value"></p-calendar> -->
+        <td>
+            <p-calendar dateFormat="dd.mm.yy" (onSelect)="onch(value)" [(ngModel)]="value"></p-calendar>
+        </td>
+        <!-- <p-calendar *ngIf="book.enddate.length == 0" (onInput)="onch()" [(ngModel)]="value"></p-calendar> -->
+
+    </p>
+</div>

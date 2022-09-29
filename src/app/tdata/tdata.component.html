@@ -1,0 +1,40 @@
+<!-- <p>tdata works!</p> -->
+<div id="dspa" style="display: none;"><br><br>
+    <table id="customers">
+        <tbody>
+            <tr *ngFor="let user of users; let index = index,let last = last;">
+                <td>{{index + 1}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+          <td> <button (click)="addItem(index)">Duplicate</button> </td>
+          <td> <button (click)="deleteFieldValue(index,user._id)">Delete</button> </td>
+            </tr>
+            <tr>
+          <td></td>
+                <td><input type="text" id="newAttributeName" name="newAttributeName" #newAttributeName></td>
+                <td><input type="text" id="newAttributeEmail" name="newAttributeEmail" #newAttributeEmail></td>
+          <td colspan="2"> <button (click)="addItemn(newAttributeName.value,newAttributeEmail.value)">Add</button> </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+
+    <!-- <p-table [value]="cars">
+        <ng-template pTemplate="header">
+            <tr>
+                <th *ngFor="let col of cols">
+                    {{col.header}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-car>
+            <tr>
+                <td *ngFor="let col of cols">
+                        {{car[col.field]}}
+                </td>
+            </tr>
+        </ng-template>
+    </p-table> -->
+<p-table><tr><td>hi</td></tr></p-table>
+
